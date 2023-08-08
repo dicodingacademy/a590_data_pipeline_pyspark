@@ -1,6 +1,5 @@
 from setup import *
 
-
 def extract(spark, sql):
     try:
         df = spark.read \
