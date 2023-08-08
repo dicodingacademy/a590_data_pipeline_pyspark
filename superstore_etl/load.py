@@ -10,7 +10,7 @@ def load(df, tabel_name):
             .option("user", USER_ID) \
             .option("password", PWD) \
             .option("driver", DRIVER) \
-            .option("dbtable", "src_" + tabel_name) \
+            .option("dbtable", tabel_name) \
             .save()
         print("Data imported successful")
         rows_imported += df.count()
