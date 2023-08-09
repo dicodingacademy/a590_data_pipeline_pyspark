@@ -1,6 +1,7 @@
 import os
 
-PWD = os.environ['PGPASS']
+PWD = os.environ['PGPASS'] # Kami sangat menyarankan Anda untuk menyimpan informasi penting seperti password kedalam environment variabel.
+# PWD = "DATABASE_PASSWORD" # Kami mengasumsikan Anda memiliki password yang sama untuk scr database dan target database
 USER_ID = "postgres"
 SERVER = "db.oqucojswwhlmdptxhcaa.supabase.co"
 DB = "postgres"

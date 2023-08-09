@@ -2,6 +2,15 @@ from pyspark.sql.functions import *
 from pyspark.sql.window import Window
 
 def rfm(df):
+    """Preparing data for RFM analysis
+
+    Args:
+        df (pyspark.sql.dataframe.DataFrame): Extracted data
+
+    Returns:
+        pyspark.sql.dataframe.DataFrame: Transformed data for RFM analysis
+    """
+    
     try:
         rfm_df = df.groupBy("Customer ID").agg(
             max("Order Date").alias("last_order_date"),
@@ -28,6 +37,14 @@ def rfm(df):
         print("RFM transform error: " + str(e))
 
 def transform(df):
+    """Transforming raw data
+
+    Args:
+        df (pyspark.sql.dataframe.DataFrame): Extracted data
+
+    Returns:
+        pyspark.sql.dataframe.DataFrame: Transformed data
+    """
     try:
         new_orders_df = df
         new_orders_df = new_orders_df.withColumn("Row ID", col("Row ID").cast("int"))
